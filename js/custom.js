@@ -23,6 +23,9 @@ $(document).ready(function(){
 	// $("#getdata").click(function(){
 
 	setInterval(function(){
+		total_vaccined_peoples  = 0;
+		fullyVaccinced = 0;
+		dailyVaccined = 0;
 		$.ajax({
 			url:"https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json",
 			success:function(resp){
