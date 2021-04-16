@@ -22,7 +22,7 @@ $(document).ready(function(){
 
 	// $("#getdata").click(function(){
 
-	
+	setInterval(function(){
 		$.ajax({
 			url:"https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json",
 			success:function(resp){
@@ -86,6 +86,7 @@ $(document).ready(function(){
 				console.log(josnData);
 			}
 		});
+	},1000);
 
 	// });
 });
