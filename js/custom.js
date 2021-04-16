@@ -1,19 +1,27 @@
 $(document).ready(function(){
-	var today = new Date();
+	/*var today = new Date();
 	var dd = String(today.getDate()).padStart(2, '0');
 	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 	var yyyy = today.getFullYear();
 
-	today = yyyy + '-' + mm + '-' + dd;
-
+	today = yyyy + '-' + mm + '-' + dd;*/
 	// console.log(today);
-	var sum = 0;
+	var fullyVaccinced = 0;
+	var territories;	
+	var total_vaccined_peoples = 0;
+	var dailyVaccined = 0;
 	var ourData = $("#ourdata");
+	var totalvaccinatedarea = $("#total_vaccined");
+	var total_tarritories = $("#total_tarritories");
+	var daily_vaccined = $("#daily_vaccined");
+	var fully_vaccined = $("#fully_vaccined");
+
 	// $("#getdata").click(function(){
 		$.ajax({
 			url:"https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json",
 			success:function(resp){
 				josnData = JSON.parse(resp);
+				territories = josnData.length;
 				for (var i = 0; i < josnData.length; i++) {
 					ourSignleData = josnData[i].data;
 					// vaccined = ourSignleData[ourSignleData.length -1].people_vaccinated;
@@ -22,18 +30,36 @@ $(document).ready(function(){
 					}else{
 						vaccined = ourSignleData[ourSignleData.length -1].total_vaccinations;
 					}
-
+					if(ourSignleData[ourSignleData.length -1].people_fully_vaccinated){
+						fullyVaccinced =fullyVaccinced + ourSignleData[ourSignleData.length -1].people_fully_vaccinated;
+					}
+					if(ourSignleData[ourSignleData.length -1].daily_vaccinations){
+						dailyVaccined =dailyVaccined + ourSignleData[ourSignleData.length -1].daily_vaccinations;
+					}
+					
 					newData = `<div class='single_data'>
 						<p>${josnData[i].country} ${vaccined}</p>
 					</div>`;
 					ourData.append(newData);
 					
-					sum = sum + vaccined;
+					total_vaccined_peoples = total_vaccined_peoples + vaccined;
 					
-					// console.log(sum)
+
+					// console.log(total_vaccined_peoples)
 				}
-				console.log(sum);
-				$("#total").text(sum);
+				console.log(total_vaccined_peoples+ " Are vaccined");
+				console.log(fullyVaccinced+ " Are fullyVaccinced");
+				console.log(territories + " are the territories");
+				console.log(dailyVaccined+ " Are dailyVaccined");
+
+				$("#total").text(total_vaccined_peoples);
+
+				// Manipulating DOM here
+				total_tarritories.text(territories);
+				totalvaccinatedarea.text(total_vaccined_peoples);
+				daily_vaccined.text(dailyVaccined);
+				fully_vaccined.text(fullyVaccinced);
+
 				console.log(josnData);
 			}
 		});
