@@ -23,6 +23,7 @@ $(document).ready(function(){
 	var total_vaccined_peoples = 0;
 	var dailyVaccined = 0;
 	var ourData = $("#ourdata");
+	var ourDataMoving = $("#ourdata-moving");
 	var totalvaccinatedarea = $("#total_vaccined");
 	var total_tarritories = $("#total_tarritories");
 	var daily_vaccined = $("#daily_vaccined");
@@ -74,7 +75,24 @@ $(document).ready(function(){
 							</tr>
 						</table>
 					</div>`;
+
+					newDataMoving = `<div class='col-sm-12 single_data'>
+						<p class='country_heading'>${josnData[i].country}</p>
+						<table class='signle_data_table'>
+							<tr class='table_heading'>
+								<td>Total</td>
+								<td>Daily</td>
+								<td>Fully</td>
+							</tr>
+							<tr>
+								<td>${addCommas(vaccined)}</td>
+								<td>${addCommas(single_daily_vaccined)}</td>
+								<td>${addCommas(single_fully_vaccined)}</td>
+							</tr>
+						</table>
+					</div>`;
 					ourData.append(newData);
+					ourDataMoving.append(newDataMoving);
 					
 					total_vaccined_peoples = total_vaccined_peoples + vaccined;
 					fullyVaccinced =fullyVaccinced + single_fully_vaccined;
