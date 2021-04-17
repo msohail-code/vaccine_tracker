@@ -1,4 +1,14 @@
-
+function addCommas(nStr){
+ nStr += '';
+ var x = nStr.split('.');
+ var x1 = x[0];
+ var x2 = x.length > 1 ? '.' + x[1] : '';
+ var rgx = /(\d+)(\d{3})/;
+ while (rgx.test(x1)) {
+  x1 = x1.replace(rgx, '$1' + ',' + '$2');
+ }
+ return x1 + x2;
+}
 
 $(document).ready(function(){
 	/*var today = new Date();
@@ -58,9 +68,9 @@ $(document).ready(function(){
 								<td>Fully</td>
 							</tr>
 							<tr>
-								<td>${vaccined}</td>
-								<td>${single_daily_vaccined}</td>
-								<td>${single_fully_vaccined}</td>
+								<td>${addCommas(vaccined)}</td>
+								<td>${addCommas(single_daily_vaccined)}</td>
+								<td>${addCommas(single_fully_vaccined)}</td>
 							</tr>
 						</table>
 					</div>`;
@@ -78,13 +88,13 @@ $(document).ready(function(){
 				console.log(territories + " are the territories");
 				console.log(dailyVaccined+ " Are dailyVaccined");
 
-				$("#total").text(total_vaccined_peoples);
+				$("#total").text(addCommas(total_vaccined_peoples));
 
 				// Manipulating DOM here
-				total_tarritories.text(territories);
-				totalvaccinatedarea.text(total_vaccined_peoples);
-				daily_vaccined.text(dailyVaccined);
-				fully_vaccined.text(fullyVaccinced);
+				total_tarritories.text(addCommas(territories));
+				totalvaccinatedarea.text(addCommas(total_vaccined_peoples));
+				daily_vaccined.text(addCommas(dailyVaccined));
+				fully_vaccined.text(addCommas(fullyVaccinced));
 
 				console.log(josnData);
 			}
