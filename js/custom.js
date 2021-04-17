@@ -10,6 +10,31 @@ function addCommas(nStr){
  return x1 + x2;
 }
 
+function drawChart(graphData) {
+
+	var data = google.visualization.arrayToDataTable(graphData);
+
+	var options = {
+	  title: 'CoronaVirus vaccinations Stats',
+	  is3D: true,
+	  backgroundColor: '#212123',
+	  pieSliceTextStyle: {
+        color: '#fff',
+      },
+      legend:{
+      	textStyle: {color: '#fff', fontSize: 16}
+      },
+      titleTextStyle: {
+      	color: "#fff",
+      },
+	};
+
+	var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+	chart.draw(data, options);
+}
+
+
 $(document).ready(function(){
 	/*var today = new Date();
 	var dd = String(today.getDate()).padStart(2, '0');
@@ -30,6 +55,7 @@ $(document).ready(function(){
 	var fully_vaccined = $("#fully_vaccined");
 	var single_fully_vaccined = 0;
 	var single_daily_vaccined = 0;
+	var ourMapData = [];
 
 	// $("#getdata").click(function(){
 
@@ -114,7 +140,19 @@ $(document).ready(function(){
 				daily_vaccined.text(addCommas(dailyVaccined));
 				fully_vaccined.text(addCommas(fullyVaccinced));
 
-				console.log(josnData);
+				ourMapData = [
+					['Task', 'Hours per Day'],
+					['Total Vaccined',     total_vaccined_peoples],
+					['Daily Vaccined',     dailyVaccined],
+					['Fully Vaccined',     fullyVaccinced],
+					['Territories',     territories],
+				];
+
+				google.charts.load('current', {'packages':['corechart']});
+      			google.charts.setOnLoadCallback(drawChart(ourMapData));
+
+
+				// console.log(josnData);
 			}
 		});
 	},1000);

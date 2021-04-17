@@ -85,6 +85,10 @@ body{
 
 }
 
+#piechart{
+	height: 500px;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
