@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Vaccine Tracker</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="icon"  href="images/favicon.png">
+
+
+</head>
+
+<body>
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-5">
+				<div class="stats">
+					<div class="row" id="branding">
+						<div class="col-sm-12">
+							<h1>CoronaVirus Vaccination</h1>
+							<h3>Covid-19 Live World MAP/COUNT</h3>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-3">
+							<p class="ourCounts" id="total_vaccined"></p>
+							<p class="ourHeding">Total Vaccined</p>
+						</div>
+						<div class="col-sm-3">
+							<p class="ourCounts" id="daily_vaccined"></p>
+							<p class="ourHeding">Daily Vaccined</p>
+						</div>
+						<div class="col-sm-3">
+							<p class="ourCounts" id="fully_vaccined"></p>
+							<p class="ourHeding">Fully Vaccined</p>
+						</div>
+						<div class="col-sm-3">
+							<p class="ourCounts" id="total_tarritories"></p>
+							<p class="ourHeding">Territories</p>
+						</div>
+						
+						
+					</div>
+
+					<div class="row">
+						<div class="col-sm-12 text-center">
+							<article class="text-center">Last Updated: <span id="updated-date"></span></article>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-sm-12">
+							<div id="piechart"></div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="col-sm-5">
+				<div id="ourdata" class="row"></div>
+			</div>
+			<div class="col-sm-2">
+				<marquee direction="up" style='height: 100vh;' height="100vh" scrollamount="10">
+					<div id="ourdata-moving" class="row">
+						
+					</div>
+				</marquee>
+			</div>
+		</div>
+		
+	</div>
+
+
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	background-color:#212123;
+	color:#fff;
+	font-family: 'Montserrat', sans-serif;
+}
+@media (min-width: 1200px) {
+    .container{
+        max-width: 1900px;
+    }
+}
+
+#branding{
+	text-align: center;
+}
+#branding h1{
+	font-size:45px;
+}
+
+#ourdata{
+	border:1px solid #000;
+	min-height: 30px;
+	height:100vh;
+	overflow-y:scroll;
+	overflow-x:hidden;
+}
+
+#ourdata-moving{
+	height: 100vh;
+}
+
+.single_data{
+
+	display: inline-block;
+	border:1px solid #776f6f;
+	color: #fff;
+	margin:0;	
+	
+
+}
+.stats p{
+	text-align:center;
+	margin:0;
+	font-weight:bold;
+	font-size:20px;
+}
+.stats p.ourHeding{
+	color:#fff;
+}
+
+.stats p#total_vaccined{
+	color:#ffff96;
+}
+
+.stats p#daily_vaccined{
+	color:#df5a5b;
+}
+
+.stats p#fully_vaccined{
+	color:#379243;
+}
+.stats p#total_tarritories{
+	color:#fff;
+}
+
+.table_heading{
+	text-align:right;
+	font-weight:600;
+	
+}
+.country_heading{
+	font-weight:700;
+	font-size:20px;
+	color:#c5b20f;
+}
+.signle_data_table{
+    margin-top:-15px;
+}
+.signle_data_table td{
+	width:80px;
+	text-align:center;
+
+}
+
+#piechart{
+	height: 500px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+/* width */
+::-moz-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-moz-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-moz-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-moz-scrollbar-thumb:hover {
+  background: #555; 
+}
