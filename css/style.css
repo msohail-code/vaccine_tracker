@@ -30,6 +30,7 @@ body{
 
 #ourdata-moving{
 	height: 100vh;
+	overflow: hidden;
 }
 
 .single_data{

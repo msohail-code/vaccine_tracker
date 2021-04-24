@@ -60,12 +60,14 @@ $(document).ready(function(){
 	var updatingDateArea = $("#updated-date");
 
 	// $("#getdata").click(function(){
-
+	var appended = false;
 	setInterval(function(){
 		total_vaccined_peoples  = 0;
 		fullyVaccinced = 0;
 		dailyVaccined = 0;
 		countriesCount = 0;
+		// ourData.html("");
+		// ourDataMoving.html("");
 		$.ajax({
 			url:"https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/vaccinations/vaccinations.json",
 			success:function(resp){
@@ -131,8 +133,11 @@ $(document).ready(function(){
 							</tr>
 						</table>
 					</div>`;
-					ourData.append(newData);
-					ourDataMoving.append(newDataMoving);
+					if (!appended){
+						ourData.append(newData);
+						ourDataMoving.append(newDataMoving);
+					}
+						
 					
 					total_vaccined_peoples = total_vaccined_peoples + vaccined;
 					fullyVaccinced =fullyVaccinced + single_fully_vaccined;
@@ -171,9 +176,34 @@ $(document).ready(function(){
 
 				console.log(josnData);
 				console.log(updatingDate);
+				appended = true;
 			}
 		});
 	},1000);
 
 	// });
+});
+
+
+// Scrolling Effect
+
+moving =0;
+$(function(){
+  var tickerLength = $('#ourdata-moving .single_data').length;
+  var tickerHeight = $('#ourdata-moving .single_data').outerHeight();
+  $('#ourdata-moving .single_data:last-child').prependTo('#ourdata-moving');
+  $('#ourdata-moving').css('marginTop',-tickerHeight);
+  function moveTop(){
+    $('#ourdata-moving').animate({
+      top : -tickerHeight
+    },600, function(){
+     $('#ourdata-moving .single_data:first-child').appendTo('#ourdata-moving');
+      $('#ourdata-moving').css('top','');
+    });
+    moving++;
+   }
+  setInterval( function(){
+    moveTop();
+    console.log(moving);
+  }, 700);
 });
