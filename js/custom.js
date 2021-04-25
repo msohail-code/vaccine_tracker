@@ -160,7 +160,7 @@ $(document).ready(function(){
 				totalvaccinatedarea.text(addCommas(total_vaccined_peoples));
 				daily_vaccined.text(addCommas(dailyVaccined));
 				fully_vaccined.text(addCommas(fullyVaccinced));
-				updatingDateArea.text(updatingDate);
+				// updatingDateArea.text(updatingDate);
 
 				ourMapData = [
 					['Task', 'Hours per Day'],
